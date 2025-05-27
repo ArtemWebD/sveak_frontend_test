@@ -58,5 +58,10 @@
         -webkit-box-orient: vertical;
         overflow: hidden;   
         text-overflow: ellipsis;
+
+        @media (max-width: $mobile-max-width) {
+            -webkit-line-clamp: 5;
+            line-clamp: 5;
+        }
     }
 }
