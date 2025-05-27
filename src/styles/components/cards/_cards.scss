@@ -21,7 +21,7 @@
     background: $btn-color;
     border-radius: 10px;
     padding: 0.5rem;
-    transition: $transition-medium;
+    transition: transform $transition-medium, box-shadow $transition-medium;
 
     @media (min-width: $tablet-max-width) {
         &:hover {
