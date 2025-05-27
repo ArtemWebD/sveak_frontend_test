@@ -1,0 +1,11 @@
+@use "../../variables" as *;
+
+.button {
+    width: 20px;
+    height: 20px;
+    transition: $transition-medium;
+
+    path, circle, rect {
+        transition: $transition-medium;
+    }
+}

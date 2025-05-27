@@ -1,0 +1,41 @@
+@use "variables" as *;
+@use "components/nav/horizontal-nav";
+@use "components/nav/vertical-nav";
+@use "components/buttons/buttons";
+@use "components/footer/footer";
+@use "components/cards/cards";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: $bg-color;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body[aria-expanded="true"] {
+    @media (max-width: $mobile-max-width) {
+        overflow-y: hidden;
+    }
+}
+
+main {
+    display: flex;
+    flex: 1 0 auto;
+
+    .content {
+        flex: 1;
+        position: relative;
+        border-bottom: 2px solid $btn-color;
+
+        @media (max-width: $mobile-max-width) {
+            border-bottom: none;
+        }
+    }
+}

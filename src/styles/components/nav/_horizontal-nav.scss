@@ -1,0 +1,65 @@
+@use "../../variables" as *;
+@use "../burger/burger";
+@use "sass:color";
+
+.top-menu {
+    background: $bg-color;
+    color: $text-color;
+    height: 60px;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: $transition-medium;
+
+    @media (min-width: $tablet-max-width) {
+        &:hover {
+            background: color.scale($bg-color, $lightness: -5%);
+        }
+    }
+
+    @media(max-width: $tablet-max-width) {
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 100;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: flex-end;
+        list-style: none;
+        gap: 1.5rem;
+    }
+
+    &__item {
+        padding: 0.5rem 0;
+        cursor: pointer;
+
+        @media (min-width: $tablet-max-width) {
+            &:hover {
+                .button {
+                    transform: scale(1.1);
+
+                    path, circle, rect {
+                        opacity: 0.3;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: $tablet-max-width) {
+            &:active {
+                .button {
+                    transform: scale(1.1);
+
+                    path, circle, rect {
+                        opacity: 0.3;
+                    }
+                }
+            }
+        }
+    }
+}

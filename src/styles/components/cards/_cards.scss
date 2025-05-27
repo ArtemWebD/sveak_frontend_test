@@ -1,0 +1,62 @@
+@use "../../variables" as *;
+
+.cards {
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .card {
+        flex: 1 1 160px;
+        height: 128px;
+
+        @media (max-width: $mobile-max-width) {
+            flex-basis: 115px;
+            height: 115px;
+        }
+    }
+}
+
+.card {
+    background: $btn-color;
+    border-radius: 10px;
+    padding: 0.5rem;
+    transition: $transition-medium;
+
+    @media (min-width: $tablet-max-width) {
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    @media (max-width: $tablet-max-width) {
+        &:active {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    h5 {
+        font-size: 12px;
+        margin-bottom: 5px;
+        max-width: 140px;
+        white-space: nowrap;
+        overflow: hidden;   
+        text-overflow: ellipsis;
+
+        @media (max-width: $mobile-max-width) {
+            max-width: 90px;
+        }
+    }
+
+    p {
+        font-size: 12px;
+        display: -webkit-box;
+        -webkit-line-clamp: 6;
+        line-clamp: 6;
+        -webkit-box-orient: vertical;
+        overflow: hidden;   
+        text-overflow: ellipsis;
+    }
+}
