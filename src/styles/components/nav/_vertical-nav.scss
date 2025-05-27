@@ -25,11 +25,8 @@
     @media (max-width: $tablet-max-width) {
         height: 100vh;
         position: fixed;
-        left: -$width;
-
-        &[aria-hidden="false"] {
-            left: 0;
-        }
+        left: -$mobile-max-width;
+        visibility: hidden;
     }
 
     @media (max-width: $mobile-max-width) {
@@ -110,5 +107,6 @@
 body[aria-expanded="true"] .side-menu {
     @media (max-width: $tablet-max-width) {
         left: 0;
+        visibility: visible;
     }
 }
