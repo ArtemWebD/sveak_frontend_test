@@ -14,30 +14,30 @@ export default class Cards {
      * Скрыть последний ряд карточек, если он неполный
      */
     hideLastRow() {
-        const cards = Array.from(this._container.querySelectorAll(".card"));
+        // const cards = Array.from(this._container.querySelectorAll(".card"));
 
-        if (!cards.length) {
-            return;
-        }
+        // if (!cards.length) {
+        //     return;
+        // }
 
-        cards.forEach((card) => {
-            if (card.style.display === "none") {
-                card.style.display = "";
-            }
-        });
+        // cards.forEach((card) => {
+        //     if (card.style.display === "none") {
+        //         card.style.display = "";
+        //     }
+        // });
 
-        const { gap, containerWidth, cardWidth } = this._getSizes(cards[0]);
-        const rowCardsCount = Math.trunc((containerWidth + gap) / (cardWidth + gap));
+        // const { gap, containerWidth, cardWidth } = this._getSizes(cards[0]);
+        // const rowCardsCount = Math.trunc((containerWidth + gap) / (cardWidth + gap));
         
-        if (cards.length <= rowCardsCount) {
-            return;
-        }
+        // if (cards.length <= rowCardsCount) {
+        //     return;
+        // }
 
-        const extraCardsCount = cards.length % rowCardsCount;
+        // const extraCardsCount = cards.length % rowCardsCount;
         
-        for (let i = cards.length - 1; i > cards.length - 1 - extraCardsCount; i--) {
-            cards[i].style.display = "none";
-        }
+        // for (let i = cards.length - 1; i > cards.length - 1 - extraCardsCount; i--) {
+        //     cards[i].style.display = "none";
+        // }
     }
 
     /**
