@@ -3,16 +3,18 @@
 $line-height: 5px;
 $gap: 3px;
 
+#burger {
+    display: none;
+}
+
 .burger {
     width: 24px;
     height: calc($line-height * 3 + $gap * 2);
     position: relative;
-    z-index: 100;
     background: transparent;
     cursor: pointer;
     display: none;
     transition: transform $transition-medium;
-    transition-delay: $transition-medium-delay;
 
     @media (max-width: $tablet-max-width) {
         display: flex;
@@ -31,11 +33,10 @@ $gap: 3px;
         background: $btn-color;
         border-radius: 2px;
         transition: transform $transition-medium, opacity $transition-medium;
-        transition-delay: $transition-medium-delay;
     }
 }
 
-body[aria-expanded="true"] .burger {
+#burger:checked + .burger {
     $yDiff: calc($line-height + $gap);
 
     transform: rotate(180deg);
