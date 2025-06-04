@@ -15,7 +15,7 @@ $border-bottom-height: 2px;
     justify-content: flex-end;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     grid-column: 2 / -1;
-    transition: $transition-medium;
+    transition: background $transition-medium, box-shadow $transition-medium;
 
     @media (min-width: $tablet-max-width) {
         &:hover {
