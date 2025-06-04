@@ -2,8 +2,7 @@
 @use "sass:color";
 
 .side-menu {
-    $width: 310px;
-    width: $width;
+    width: $vertical-nav-width;
     padding: 20px 1rem;
     border-right: 2px solid $btn-color;
     border-bottom: 2px solid $btn-color;
