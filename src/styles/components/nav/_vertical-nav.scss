@@ -9,7 +9,7 @@
     background: $bg-color;
     overflow-y: auto;
     grid-row: 1 / -1;
-    transition: transform $transition-medium;
+    transition: transform $transition-medium, background $transition-medium;
 
     @media (min-width: $tablet-max-width) {
         &:hover {
