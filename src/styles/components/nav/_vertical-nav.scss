@@ -9,7 +9,7 @@
     background: $bg-color;
     overflow-y: auto;
     grid-row: 1 / -1;
-    transition: transform $transition-medium, visibility transform $transition-medium;
+    transition: transform $transition-medium;
 
     @media (min-width: $tablet-max-width) {
         &:hover {
@@ -24,7 +24,6 @@
         z-index: 101;
         transform: translateX(-$mobile-max-width);
         border-right: none;
-        visibility: hidden;
     }
 
     @media (max-width: $mobile-max-width) {
@@ -104,6 +103,5 @@
 body:has(#burger:checked) .side-menu {
     @media (max-width: $tablet-max-width) {
         transform: translateX(0);
-        visibility: visible;
     }
 }
