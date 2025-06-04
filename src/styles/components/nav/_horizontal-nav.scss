@@ -2,15 +2,19 @@
 @use "../burger/burger";
 @use "sass:color";
 
+$border-bottom-height: 2px;
+
 .top-menu {
     background: $bg-color;
     color: $text-color;
+    position: relative;
     height: 60px;
     padding: 0 1rem;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    grid-column: 2 / -1;
     transition: $transition-medium;
 
     @media (min-width: $tablet-max-width) {
@@ -20,11 +24,28 @@
     }
 
     @media(max-width: $tablet-max-width) {
+        grid-column: 1 / -1;
         justify-content: space-between;
         position: sticky;
         top: 0;
         left: 0;
-        z-index: 100;
+        z-index: 102;
+    }
+
+    @media(max-width: $mobile-max-width) {
+        &::after {
+            content: "";
+            display: block;
+            max-width: 0;
+            width: calc(100% - 1rem - $burger-width);
+            height: 100%;
+            overflow: hidden;
+            background-color: $bg-color;
+            position: absolute;
+            left: calc(1rem + $burger-width);
+            top: 0;
+            transition: max-width $transition-medium;
+        }
     }
 
     &__container {
@@ -37,6 +58,7 @@
     &__item {
         padding: 0.5rem 0;
         cursor: pointer;
+        transition: opacity $transition-medium;
 
         @media (min-width: $tablet-max-width) {
             &:hover {
@@ -60,6 +82,24 @@
                     }
                 }
             }
+        }
+    }
+}
+
+body:has(#burger:checked) .top-menu {
+    @media (max-width: $tablet-max-width) {
+        box-shadow: none;
+        border-bottom: 2px solid transparent;
+    }
+
+    @media (max-width: $mobile-max-width) {
+        // &__item {
+        //     opacity: 0;
+        //     visibility: hidden;
+        // }
+
+        &::after {
+            max-width: 100%;
         }
     }
 }
