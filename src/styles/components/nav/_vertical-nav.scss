@@ -9,7 +9,7 @@
     background: $bg-color;
     overflow-y: auto;
     grid-row: 1 / -1;
-    transition: $transition-medium;
+    transition: transform $transition-medium, visibility transform $transition-medium;
 
     @media (min-width: $tablet-max-width) {
         &:hover {
@@ -22,14 +22,13 @@
         position: fixed;
         top: $horizontal-nav-height;
         z-index: 101;
-        left: -$mobile-max-width;
+        transform: translateX(-$mobile-max-width);
         border-right: none;
         visibility: hidden;
     }
 
     @media (max-width: $mobile-max-width) {
         width: 100%;
-        left: -$mobile-max-width;
     }
 
     &__container {
@@ -104,7 +103,7 @@
 
 body:has(#burger:checked) .side-menu {
     @media (max-width: $tablet-max-width) {
-        left: 0;
+        transform: translateX(0);
         visibility: visible;
     }
 }
