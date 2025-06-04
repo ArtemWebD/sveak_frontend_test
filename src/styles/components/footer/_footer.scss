@@ -1,18 +1,18 @@
 @use "../../variables" as *;
 
-footer {
+.footer {
     width: 100%;
     padding: 1rem;
     flex-shrink: 0;
     background: $bg-color;
     grid-column: 1 / -1;
 
-    h4 {
+    &__title {
         font-weight: 700;
         font-size: 14px;
     }
 
-    p {
+    &__text {
         font-weight: 500;
         font-size: 12px;
     }

@@ -26,7 +26,7 @@ $gap: 3px;
         content: "";
     }
 
-    span, &::after, &::before {
+    &__line, &::after, &::before {
         display: block;
         width: 100%;
         height: $line-height;
@@ -45,7 +45,7 @@ $gap: 3px;
         transform: translateY($yDiff) rotate(45deg);
     }
 
-    span {
+    .burger__line {
         opacity: 0;
     }
 

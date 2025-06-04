@@ -41,7 +41,7 @@
         }
     }
 
-    h5 {
+    &__title {
         font-size: 12px;
         margin-bottom: 5px;
         max-width: 140px;
@@ -54,7 +54,7 @@
         }
     }
 
-    p {
+    &__text {
         font-size: 12px;
         display: -webkit-box;
         -webkit-line-clamp: 6;
