@@ -15,12 +15,12 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: $bg-color;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 310px 1fr;
+    grid-template-rows: 60px auto auto;
 }
 
-body[aria-expanded="true"] {
+body:has(#burger:checked) {
     @media (max-width: $mobile-max-width) {
         overflow-y: hidden;
     }
@@ -29,6 +29,12 @@ body[aria-expanded="true"] {
 main {
     display: flex;
     flex: 1 0 auto;
+    min-height: 77vh;
+
+    @media (max-width: $tablet-max-width) {
+        grid-column: 1 / -1;
+        border-bottom: none;
+    }
 
     .content {
         flex: 1;
