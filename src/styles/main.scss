@@ -18,6 +18,7 @@ body {
     display: grid;
     grid-template-columns: 310px 1fr;
     grid-template-rows: 60px auto auto;
+    overflow-x: hidden;
 }
 
 body:has(#burger:checked) {
