@@ -39,7 +39,7 @@
 
     &__item {
         display: flex;
-        align-items: center;
+        align-items: stretch;
         gap: 0.5rem;
         padding: 0.6rem;
         border-radius: 30px;
@@ -47,8 +47,17 @@
         transition: background $transition-medium;
 
         &__icon {
-            width: 20px;
-            height: 20px;
+            width: 23px;
+            height: 23px;
+        }
+
+        &__icon-container {
+            fill: $btn-color;
+        }
+
+        &__content {
+            display: flex;
+            align-items: center;
         }
 
         @media (min-width: $tablet-max-width) {
