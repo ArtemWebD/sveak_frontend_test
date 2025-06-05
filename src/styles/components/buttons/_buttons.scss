@@ -1,9 +1,135 @@
 @use "../../variables" as *;
+@use "sass:color";
+
+$animation-duration: 1s;
+$hide-animation-duration: 0.8s;
 
 .button {
     width: 20px;
     height: 20px;
     transition: $transition-medium;
+    position: relative;
+    z-index: 1;
+
+    @media (min-width: $tablet-max-width) {
+        &:hover {
+            .button__icon {
+                transition-delay: calc($hide-animation-duration - $transition-medium-delay);
+                fill: $active-element-color;
+            }
+
+            .button__animation {
+                stroke: $active-element-color;
+                opacity: 0.5;
+
+                &:nth-child(1) {
+                    animation: hide1 $hide-animation-duration ease-in-out;
+                    animation-direction: alternate;
+                }
+
+                &:nth-child(2) {
+                    animation: hide2 $hide-animation-duration ease-in-out;
+                    animation-direction: alternate;
+                }
+            }
+        }
+    }
+
+    @media (max-width: $tablet-max-width) {
+        &:focus {
+            .button__icon {
+                transition-delay: calc($hide-animation-duration - $transition-medium-delay);
+                fill: $active-element-color;
+            }
+
+            .button__animation {
+                stroke: $active-element-color;
+                opacity: 0.5;
+
+                &:nth-child(1) {
+                    animation: hide1 $hide-animation-duration ease-in-out;
+                    animation-direction: alternate;
+                }
+
+                &:nth-child(2) {
+                    animation: hide2 $hide-animation-duration ease-in-out;
+                    animation-direction: alternate;
+                }
+            }
+        }
+    }
+
+    &__container {
+        position: relative;
+        overflow: visible;
+    }
+
+    &__icon {
+        fill: $btn-color;
+        filter: drop-shadow(0, 0, 0, transparent);
+        transition: fill $transition-medium;
+    }
+
+    &__animation {
+        position: absolute;
+        left: 0;
+        top: 0;
+        fill: none;
+        stroke-width: 2px;
+        filter: blur(1px);
+
+        &:nth-child(1) {
+            stroke: $green-bg-color;
+            animation: pulse1 $animation-duration infinite ease-in-out;
+            animation-direction: alternate;
+            animation-delay: $transition-medium-delay;
+        }
+
+        &:nth-child(2) {
+            stroke: $blue-bg-color;
+            animation: pulse2 $animation-duration infinite ease-in-out;
+            animation-direction: alternate;
+            animation-delay: calc($animation-duration / 2 + $transition-medium-delay);
+        }
+    }
+
+    @keyframes pulse1 {
+        0% { transform: scale(1) translate(0, 0); }
+        50%, 100% { transform: scale(1.2) translate(-6%, -8%); }
+    }
+
+    @keyframes pulse2 {
+        0% { transform: scale(1) translate(0, 0); }
+        50%, 100% { transform: scale(1.5) translate(-14%, -15%); }
+    }
+
+    @keyframes hide1 {
+        0%, 50% {
+            transform: scale(1.2) translate(-6%, -8%);
+            stroke: $green-bg-color;
+            opacity: 1;
+        }
+
+        100% {
+            transform: scale(1) translate(0, 0);
+            stroke: $active-element-color;
+            opacity: 0.5;
+        }
+    }
+
+    @keyframes hide2 {
+        0%, 50% {
+            transform: scale(1.5) translate(-10%, -15%);
+            stroke: $blue-bg-color;
+            opacity: 1;
+        }
+
+        100% {
+            transform: scale(1) translate(0, 0);
+            stroke: $active-element-color;
+            opacity: 0.5;
+        }
+    }
 
     path, circle, rect {
         transition: $transition-medium;
