@@ -40,6 +40,7 @@ $border-bottom-height: 2px;
             width: calc(100% - 1rem - $burger-width);
             height: 100%;
             overflow: hidden;
+            z-index: 10;
             background-color: $bg-color;
             position: absolute;
             left: calc(1rem + $burger-width);
