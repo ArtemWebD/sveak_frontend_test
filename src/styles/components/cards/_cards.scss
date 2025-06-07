@@ -1,4 +1,5 @@
 @use "../../variables" as *;
+@use "../scroll/scroll";
 
 .cards {
     padding: 1rem;
@@ -49,18 +50,64 @@
             }
         }
     }
+
+    &__close {
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        right: 10px;
+        top: 10px;
+        z-index: 130;
+        cursor: pointer;
+        visibility: hidden;
+        opacity: 0;
+        border: 2px solid $active-element-color;
+        border-radius: 5px;
+        background-color: $btn-color;
+        transition: opacity $transition-medium;
+
+        &::after, &::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: $active-element-color;
+            position: absolute;
+            left: 0;
+        }
+
+        &::after {
+            bottom: 50%;
+            transform: rotate(45deg) translateY(50%);
+        }
+
+        &::before {
+            top: 50%;
+            transform: rotate(-45deg) translateY(-50%);
+        }
+    }
 }
 
 .card {
+    $border-radius: 10px;
+
     background: $btn-color;
-    border-radius: 10px;
-    padding: 0.5rem;
+    border-radius: $border-radius;
+    overflow: hidden;
+    cursor: pointer;
     transition: transform $transition-medium, box-shadow $transition-medium;
 
     @media (min-width: $tablet-max-width) {
         &:hover {
             transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 20px 20px 15px rgba(0, 0, 0, 0.2);
+            animation: cardHover 0.7s ease-in-out;
+        }
+
+        &:focus:hover {
+            transform: none;
+            box-shadow: none;
+            animation: none;
         }
     }
 
@@ -68,6 +115,149 @@
         &:active {
             transform: scale(1.05);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    &:focus {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 120;
+        border-radius: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: auto;
+        background-color: #00000086;
+
+        .card__body {
+            height: 75vh;
+            width: 50vw;
+            border-radius: $border-radius;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background: $bg-color;
+            padding: 0;
+            animation: appearance 0.8s forwards;
+
+            &::-webkit-scrollbar {
+                width: 0;
+            }
+
+            @media (max-width: $tablet-max-width) {
+                height: 90vh;
+                width: 75vw;
+            }
+
+            @media (max-width: $mobile-max-width) {
+                width: 100%;
+                height: 100%;
+                border-radius: 0;
+            }
+        }
+
+        .card__image {
+            position: sticky;
+            height: 100%;
+
+            &::after {
+                display: none;
+            }
+
+            &__scroll {
+                display: block;
+            }
+        }
+
+        .card__content {
+            background-color: $bg-color;
+            border-top: 1px solid $btn-color;
+        }
+
+        .card__title {
+            padding: 1.5rem 0.5rem 0 0.5rem;
+            text-align: center;
+            font-size: 16px;
+            white-space: normal;
+            text-overflow: clip;
+            max-width: none;
+        }
+
+        .card__text {
+            padding: 1rem;
+            font-size: 14px;
+            -webkit-line-clamp: none;
+            line-clamp: none;
+        }
+    }
+
+    @keyframes appearance {
+        from {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+
+        to {
+            opacity: 1;
+            transform: translate(0);
+        }
+    }
+
+    @keyframes cardHover {
+        0% {
+            box-shadow: 0 0 rgba(0, 0, 0, 0.4);
+        }
+
+        50% {
+            box-shadow: 20px 20px rgba(0, 0, 0, 0), 0 0 rgba(0, 0, 0, 0.4);
+        }
+
+        100% {
+            box-shadow: 20px 20px rgba(0, 0, 0, 0), 20px 20px 15px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    &__body {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 0.5rem;
+    }
+
+    &__image {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+
+        &::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        &__scroll {
+            display: none;
+        }
+    }
+
+    &__picture {
+        display: flex;
+        width: 100%;
+        height: 100%;
+
+        &__img {
+            object-fit: cover;
+            width: 100%;
+            height: auto;
         }
     }
 
@@ -98,4 +288,9 @@
             line-clamp: 5;
         }
     }
+}
+
+.card:focus ~ .cards__close {
+    visibility: visible;
+    opacity: 1;
 }

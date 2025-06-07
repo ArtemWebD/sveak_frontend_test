@@ -27,6 +27,10 @@ body:has(#burger:checked) {
     }
 }
 
+body:has(.card:focus) {
+    overflow-y: hidden;
+}
+
 main {
     display: flex;
     flex: 1 0 auto;
