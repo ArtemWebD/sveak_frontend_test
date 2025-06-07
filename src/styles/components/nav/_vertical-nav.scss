@@ -58,11 +58,21 @@
         &__content {
             display: flex;
             align-items: center;
+            white-space: nowrap;
+            overflow: hidden;
         }
 
         @media (min-width: $tablet-max-width) {
             &:hover {
                 background: $active-element-color;
+            }
+
+            &__icon {
+                animation: icon 0.5s ease-in-out;
+            }
+
+            &__content {
+                animation: content 1.5s ease-in-out;
             }
         }
 
@@ -71,11 +81,39 @@
                 background: $active-element-color;
             }
         }
+
+        @keyframes icon {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes content {
+            0%, 33% {
+                max-width: 0;
+            }
+
+            100% {
+                max-width: 100%;
+            }
+        }
     }
 }
 
 body:has(#burger:checked) .side-menu {
     @media (max-width: $tablet-max-width) {
         transform: translateX(0);
+
+        .side-menu__item__icon {
+            animation: icon 0.5s ease-in-out;
+        }
+
+        .side-menu__item__content {
+            animation: content 1.5s ease-in-out;
+        }
     }
 }
