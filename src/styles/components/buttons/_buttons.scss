@@ -5,11 +5,33 @@ $animation-duration: 1s;
 $hide-animation-duration: 0.8s;
 
 .button {
+    display: inline-block;
     width: 20px;
     height: 20px;
     transition: $transition-medium;
     position: relative;
     z-index: 1;
+
+    &:target {
+        .button__icon {
+            fill: $active-element-color;
+        }
+
+        .button__animation {
+            stroke: $active-element-color;
+            opacity: 0.5;
+
+            &:nth-child(1) {
+                animation: hide1 $hide-animation-duration ease-in-out;
+                animation-direction: alternate;
+            }
+
+            &:nth-child(2) {
+                animation: hide2 $hide-animation-duration ease-in-out;
+                animation-direction: alternate;
+            }
+        }
+    }
 
     @media (min-width: $tablet-max-width) {
         &:hover {

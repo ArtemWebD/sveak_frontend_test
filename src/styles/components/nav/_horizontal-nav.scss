@@ -50,16 +50,24 @@ $border-bottom-height: 2px;
     }
 
     &__container {
+        height: 100%;
         display: flex;
         justify-content: flex-end;
+        align-items: center;
         list-style: none;
         gap: 1.5rem;
     }
 
     &__item {
-        padding: 0.5rem 0;
+        height: 100%;
         cursor: pointer;
         transition: opacity $transition-medium;
+
+        .button {
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
 
         @media (min-width: $tablet-max-width) {
             &:hover {
