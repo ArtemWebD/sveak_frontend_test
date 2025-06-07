@@ -5,7 +5,7 @@
 $border-bottom-height: 2px;
 
 .top-menu {
-    background: $bg-color;
+    background: var(--bg-color);
     color: $text-color;
     position: relative;
     height: $horizontal-nav-height;
@@ -54,11 +54,11 @@ $border-bottom-height: 2px;
             height: 100%;
             overflow: hidden;
             z-index: 10;
-            background-color: $bg-color;
+            background-color: var(--bg-color);
             position: absolute;
             left: calc(1rem + $burger-width);
             top: 0;
-            transition: max-width $transition-medium;
+            transition: max-width $transition-medium, background-color $transition-medium;
         }
     }
 
@@ -111,12 +111,16 @@ $border-bottom-height: 2px;
 body:has(#burger:checked) .top-menu {
     @media (max-width: $tablet-max-width) {
         box-shadow: none;
+        background-color: $bg-color;
         border-bottom: 2px solid transparent;
     }
 
     @media (max-width: $mobile-max-width) {
+        background-color: $bg-color;
+
         &::after {
             max-width: 100%;
+            background-color: $bg-color;
         }
     }
 }

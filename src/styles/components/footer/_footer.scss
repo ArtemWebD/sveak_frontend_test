@@ -4,9 +4,10 @@
     width: 100%;
     padding: 1rem;
     flex-shrink: 0;
-    background: $bg-color;
+    background-color: var(--bg-color);
     grid-column: 1 / -1;
     animation: footerAppearance calc($global-animation-delay * 2) ease-in-out;
+    transition: background-color $transition-medium;
 
     @keyframes footerAppearance {
         0%, 50% {

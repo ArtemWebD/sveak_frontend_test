@@ -152,8 +152,12 @@ $hide-animation-duration: 0.8s;
             opacity: 0.5;
         }
     }
+}
 
-    path, circle, rect {
-        transition: $transition-medium;
-    }
+body:has(#circle:target) .button .button__animation:nth-child(2) {
+    stroke: $bg-color;
+}
+
+body:has(#rectangle:target) .button .button__animation:nth-child(1) {
+    stroke: $bg-color;
 }

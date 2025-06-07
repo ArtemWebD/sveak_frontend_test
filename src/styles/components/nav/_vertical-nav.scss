@@ -8,7 +8,7 @@ $animation-delay: calc($global-animation-delay * 3);
     padding: 20px 1rem;
     border-right: 2px solid $btn-color;
     border-bottom: 2px solid $btn-color;
-    background: $bg-color;
+    background: var(--bg-color);
     overflow-y: auto;
     grid-row: 1 / -1;
     transition: transform $transition-medium, background $transition-medium;
@@ -40,6 +40,7 @@ $animation-delay: calc($global-animation-delay * 3);
         z-index: 101;
         transform: translateX(-$mobile-max-width);
         border-right: none;
+        background: $bg-color;
     }
 
     @media (max-width: $mobile-max-width) {

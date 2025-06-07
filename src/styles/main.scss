@@ -5,6 +5,18 @@
 @use "components/footer/footer";
 @use "components/cards/cards";
 
+:root {
+    --bg-color: #D6BDFF;
+}
+
+:root:has(#circle:target) {
+    --bg-color: #95D9FF;
+}
+
+:root:has(#rectangle:target) {
+    --bg-color: #ADFCC8;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,11 +26,12 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: $bg-color;
+    background-color: var(--bg-color);
     display: grid;
     grid-template-columns: 310px 1fr;
     grid-template-rows: 60px auto auto;
     overflow-x: hidden;
+    transition: background-color $transition-medium;
 }
 
 body:has(#burger:checked) {
