@@ -6,6 +6,33 @@
     flex-shrink: 0;
     background: $bg-color;
     grid-column: 1 / -1;
+    animation: footerAppearance calc($global-animation-delay * 2) ease-in-out;
+
+    @keyframes footerAppearance {
+        0%, 50% {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @media (max-width: $mobile-max-width) {
+        animation: footerMobileAppearance calc($global-animation-delay * 2) ease-in-out;
+
+        @keyframes footerMobileAppearance {
+            0%, 50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    }
 
     &__title {
         font-weight: 700;

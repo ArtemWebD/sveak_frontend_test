@@ -1,6 +1,8 @@
 @use "../../variables" as *;
 @use "sass:color";
 
+$animation-delay: calc($global-animation-delay * 3);
+
 .side-menu {
     width: $vertical-nav-width;
     padding: 20px 1rem;
@@ -11,7 +13,21 @@
     grid-row: 1 / -1;
     transition: transform $transition-medium, background $transition-medium;
 
+    @keyframes verticalNavAppearance {
+        0%, 66% {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
     @media (min-width: $tablet-max-width) {
+        animation: verticalNavAppearance $animation-delay ease-in-out;
+
         &:hover {
             background: color.scale($bg-color, $lightness: -5%);
         }
@@ -68,11 +84,11 @@
             }
 
             &__icon {
-                animation: icon 0.5s ease-in-out;
+                animation: icon 0.5s ease-in-out calc($animation-delay - $global-animation-delay);
             }
 
             &__content {
-                animation: content 1.5s ease-in-out;
+                animation: content 1.5s ease-in-out calc($animation-delay - $global-animation-delay);
             }
         }
 

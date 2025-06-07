@@ -35,10 +35,22 @@ main {
     display: flex;
     flex: 1 0 auto;
     min-height: 77vh;
+    animation: mainAppearance calc($global-animation-delay * 4 + 0.5s) ease-in-out;
+
+    @keyframes mainAppearance {
+        0%, 75% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
 
     @media (max-width: $tablet-max-width) {
         grid-column: 1 / -1;
         border-bottom: none;
+        animation: mainAppearance calc($global-animation-delay * 3) ease-in-out;
     }
 
     .content {
