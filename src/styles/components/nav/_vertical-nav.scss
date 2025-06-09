@@ -9,7 +9,6 @@ $animation-delay: calc($global-animation-delay * 3);
     border-right: 2px solid $btn-color;
     border-bottom: 2px solid $btn-color;
     background: var(--bg-color);
-    overflow-y: auto;
     grid-row: 1 / -1;
     transition: transform $transition-medium, background $transition-medium;
 
@@ -52,6 +51,12 @@ $animation-delay: calc($global-animation-delay * 3);
         flex-direction: column;
         list-style: none;
         gap: 1.5rem;
+        max-height: 75vh;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: 0;
+        }
     }
 
     &__item {
