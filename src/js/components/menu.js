@@ -77,15 +77,15 @@ export default class Menu {
                     <div class="card__body">
                         <div class="card__image">
                             <picture class="card__picture">
-                                <source media="(max-width: 639px)" srcset="public/img_5_600x600.png">
-                                <source media="(max-width: 1023px)" srcset="public/img_4_800x800.jpg">
-                                <img class="card__picture__img" src="public/img_1.webp" />
+                                <source media="(max-width: 639px)" srcset="img_5_600x600.png">
+                                <source media="(max-width: 1023px)" srcset="img_4_800x800.jpg">
+                                <img class="card__picture__img" src="img_1.webp" />
                             </picture>
                             <div class="card__image__scroll scroll">
                                 <span class="scroll__arrow"></span>
                                 <span class="scroll__thumb"></span>
                                 <svg class="scroll__icon-container" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
-                                    <use class="scroll__icon" href="public/icons.svg#hand-index-icon"></use>
+                                    <use class="scroll__icon" href="icons.svg#hand-index-icon"></use>
                                 </svg>
                             </div>
                         </div>
