@@ -120,7 +120,7 @@ export default class Menu {
             item.innerHTML = `
                 <div class="side-menu__item__icon">
                     <svg class="side-menu__item__icon-container" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
-                        <use href="public/icons.svg#circle-icon"></use>
+                        <use href="icons.svg#circle-icon"></use>
                     </svg>
                 </div>
                 <div class="side-menu__item__content">
