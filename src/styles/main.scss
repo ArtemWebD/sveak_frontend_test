@@ -50,6 +50,7 @@ main {
     min-height: 77vh;
     animation: mainAppearance calc($global-animation-delay * 4 + 0.5s) ease-in-out;
 
+    // Появление контента страницы при заходе на нее
     @keyframes mainAppearance {
         0%, 75% {
             opacity: 0;

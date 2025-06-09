@@ -3,6 +3,7 @@
 $animation-duration: 3.5s;
 $animation-delay: 1s;
 
+// Подсказка о скролле (следует скрывать при ненадобности в родителе для оптимизации)
 .scroll {
     width: 20px;
     height: 60px;
@@ -78,6 +79,7 @@ $animation-delay: 1s;
         transform: scale(2);
     }
 
+    // Цикл передвижения иконки руки
     @keyframes handAnimation {
         0% {
             transform: translate(100%, -100%) rotate(-120deg);
@@ -96,6 +98,7 @@ $animation-delay: 1s;
         }
     }
 
+    // Передвижения тела стрелки
     @keyframes arrowBody {
         0%, 39% {
             transform: translateY(100%);
@@ -110,6 +113,7 @@ $animation-delay: 1s;
         }
     }
 
+    // Передвижение левой части стрелки
     @keyframes leftArrowItem {
         0%, 39% {
             transform: translate(-250%, -50%) rotate(90deg);
@@ -124,6 +128,7 @@ $animation-delay: 1s;
         }
     }
 
+    // Передвижение правой части стрелки
     @keyframes rightArrowItem {
         0%, 39% {
             transform: translate(450%, -50%) rotate(-90deg);
@@ -138,6 +143,7 @@ $animation-delay: 1s;
         }
     }
 
+    // Передвижение круга по условной полосе скролла
     @keyframes thumb {
         0% {
             transform: translate(-50%, 0);

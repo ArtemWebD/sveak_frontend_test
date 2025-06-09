@@ -12,6 +12,7 @@ $hide-animation-duration: 0.8s;
     position: relative;
     z-index: 1;
 
+    // Применить анимацию активной кнопки при совпедении target из url
     &:target {
         .button__icon {
             fill: $active-element-color;
@@ -33,6 +34,7 @@ $hide-animation-duration: 0.8s;
         }
     }
 
+    // Применить анимацию активной кнопки при наведении
     @media (min-width: $tablet-max-width) {
         &:hover {
             .button__icon {
@@ -57,26 +59,11 @@ $hide-animation-duration: 0.8s;
         }
     }
 
+    // Применить задержку анимации при выборе кнопки (задержка изменения fill свойства)
     @media (max-width: $tablet-max-width) {
         &:focus {
             .button__icon {
                 transition-delay: calc($hide-animation-duration - $transition-medium-delay);
-                fill: $active-element-color;
-            }
-
-            .button__animation {
-                stroke: $active-element-color;
-                opacity: 0.5;
-
-                &:nth-child(1) {
-                    animation: hide1 $hide-animation-duration ease-in-out;
-                    animation-direction: alternate;
-                }
-
-                &:nth-child(2) {
-                    animation: hide2 $hide-animation-duration ease-in-out;
-                    animation-direction: alternate;
-                }
             }
         }
     }
@@ -100,6 +87,7 @@ $hide-animation-duration: 0.8s;
         stroke-width: 2px;
         filter: blur(1px);
 
+        // Первая тень
         &:nth-child(1) {
             stroke: $green-bg-color;
             animation: pulse1 $animation-duration infinite ease-in-out;
@@ -107,6 +95,7 @@ $hide-animation-duration: 0.8s;
             animation-delay: $transition-medium-delay;
         }
 
+        // Вторая тень
         &:nth-child(2) {
             stroke: $blue-bg-color;
             animation: pulse2 $animation-duration infinite ease-in-out;
@@ -115,16 +104,19 @@ $hide-animation-duration: 0.8s;
         }
     }
 
+    // Изменение размеров первой тени
     @keyframes pulse1 {
         0% { transform: scale(1) translate(0, 0); }
         50%, 100% { transform: scale(1.2) translate(-6%, -8%); }
     }
 
+    // Изменение размеров второй тени
     @keyframes pulse2 {
         0% { transform: scale(1) translate(0, 0); }
         50%, 100% { transform: scale(1.5) translate(-14%, -15%); }
     }
 
+    // Скрытие первой тени на активной кнопке
     @keyframes hide1 {
         0%, 50% {
             transform: scale(1.2) translate(-6%, -8%);
@@ -139,6 +131,7 @@ $hide-animation-duration: 0.8s;
         }
     }
 
+    // Скрытие второй тени на активной кнопке
     @keyframes hide2 {
         0%, 50% {
             transform: scale(1.5) translate(-10%, -15%);
@@ -154,6 +147,7 @@ $hide-animation-duration: 0.8s;
     }
 }
 
+//Изменение цвета теней при смене цветовой темы
 body:has(#circle:target) .button .button__animation:nth-child(2) {
     stroke: $bg-color;
 }

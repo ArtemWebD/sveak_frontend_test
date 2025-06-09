@@ -12,6 +12,7 @@ $animation-delay: calc($global-animation-delay * 3);
     grid-row: 1 / -1;
     transition: transform $transition-medium, background $transition-medium;
 
+    // Анимация появления сайд-меню при заходе на страницу (только на десктопе)
     @keyframes verticalNavAppearance {
         0%, 66% {
             transform: translateX(-100%);
@@ -104,6 +105,7 @@ $animation-delay: calc($global-animation-delay * 3);
             }
         }
 
+        // Появление иконки при отображении сайд-меню
         @keyframes icon {
             from {
                 opacity: 0;
@@ -114,6 +116,7 @@ $animation-delay: calc($global-animation-delay * 3);
             }
         }
 
+        // Разворот пункта меню при отображении сайд-меню
         @keyframes content {
             0%, 33% {
                 max-width: 0;
@@ -126,6 +129,7 @@ $animation-delay: calc($global-animation-delay * 3);
     }
 }
 
+// Изменения сайд-меню при активном бургере
 body:has(#burger:checked) .side-menu {
     @media (max-width: $tablet-max-width) {
         transform: translateX(0);

@@ -9,6 +9,7 @@
     animation: footerAppearance calc($global-animation-delay * 2) ease-in-out;
     transition: background-color $transition-medium;
 
+    // Анимация появления футера при заходе на страницу
     @keyframes footerAppearance {
         0%, 50% {
             transform: translateX(100%);
