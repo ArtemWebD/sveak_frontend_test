@@ -46,7 +46,7 @@
         }
 
         @media (max-width: $mobile-max-width) {
-            &:nth-child(2n):nth-last-child(-n + 2) ~ .card {
+            &:nth-child(2n):nth-last-child(-2n + 3) ~ .card {
                 display: none;
             }
         }
